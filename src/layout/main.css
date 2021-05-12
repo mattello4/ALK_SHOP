@@ -129,6 +129,13 @@ h2 {
   padding: 10px 0;
   border-bottom: 1px solid lightgray;
 }
+.total {
+  width: 10%;
+  border-bottom: 1px solid lightgrey;
+  display: flex;
+  align-items: center;
+}
+
 #products {
   width: 100%;
   display: flex;
@@ -146,7 +153,9 @@ h2 {
 }
 .basketTotalTitle {
   width: 30%;
+  font-size: 1rem;
 }
 .basketTotal {
-  width: 100%;
+  width: 10%;
+  font-size: 1rem;
 }

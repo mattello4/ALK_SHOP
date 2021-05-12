@@ -12,15 +12,12 @@ const validate = (validation, errorMessage) => {
 
 export const rooms = () => {
   const fragment = $(document.createDocumentFragment());
-  const h2 = $(
-    `<div class="col-md-12 text-center"><h2>Wybierz datę przyjazdu</h2></div>`
-  );
+  const h2 = $(`<div class="col-md-12 text-center"><h2>Wybierz</h2></div>`);
   const section = $("<section>Loading...</section>");
   const form = $(`
   <form name="signUp" autocomplete="off" novalidate>
-  <div class="container">
-  <div class="row justify-content-md-center">
-    <div class="col-sm-12 col-md-4 text-center">
+  <div class="container mt-2">
+  <div class="col-md-12 item text-center">
       <label class="required">Przyjazd</label><br>
       <input type="date" id="come"><br>
       <p id="come-check" class="text-danger">Data przyjazdu wcześniejsza niż bieżąca</p>
