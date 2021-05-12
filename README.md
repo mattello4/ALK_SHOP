@@ -69,3 +69,4 @@ Strony, którymi możesz się inspirować:
 - bukowypark.pl
 - hotelczarnypotok.pl
 - hotelniemcza.pl
+# ALK_SHOP
