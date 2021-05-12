@@ -47,12 +47,13 @@ export const rooms = () => {
         <div class="container">
         <div class="row justify-content-md-center">
           <div class="card col-sm-12 col-md-4">
-      
+          <div id="ok" class="p-3 mb-2 bg-success text-white">Dodałeś do koszyka</div>
                         <h4>${name}</h4>
                         <p class="card-text"><strong>Beds</strong> ${beds} | <strong>Guests</strong> ${guests}</p>
                         <p class="card-text"><strong>Price</strong> ${price.toFixed(
                           2
                         )} zł</p>
+                      
                         <button class="addcart btn btn-elegant" type="button"">Dodaj do koszyka</button>
                         <button class="btn btn-elegant" id="info" type="button">Wiecej informacji</button>
                         </div>
@@ -60,6 +61,9 @@ export const rooms = () => {
                       </div>
                 
                 `);
+        const success = article.find("#ok");
+        success.hide();
+
         const carts = article.find(".addcart");
         const errorMessages = {
           come: {
@@ -140,7 +144,7 @@ export const rooms = () => {
                   [rooms.name]: rooms,
                 };
               }
-
+              success.show();
               localStorage.setItem("productsInCart", JSON.stringify(cartItems));
             }
             function totalCost(rooms) {

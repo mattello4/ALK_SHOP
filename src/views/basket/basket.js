@@ -54,7 +54,7 @@ export const basket = () => {
     }
   }
 
-  //delete
+  //delete basket
   document.querySelector("body").addEventListener("click", function (event) {
     if (event.target.matches(".product ion-icon")) {
       let deleteButtons = document.querySelectorAll(".product ion-icon");
