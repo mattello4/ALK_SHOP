@@ -46,7 +46,10 @@ export const rooms = () => {
         <div class="container">
         <div class="row justify-content-md-center">
           <div class="card col-sm-12 col-md-4">
-          <div id="ok" class="p-3 mb-2 bg-success text-white">Dodałeś do koszyka</div>
+          <div class="alert alert-success" id="success-alert">
+          <button type="button" class="close" data-dismiss="alert">x</button>
+          <strong>Sukces! </strong> Dodałeś pokój do koszyka.
+        </div>>
                         <h4>${name}</h4>
                         <p class="card-text"><strong>Beds</strong> ${beds} | <strong>Guests</strong> ${guests}</p>
                         <p class="card-text"><strong>Price</strong> ${price.toFixed(
@@ -60,7 +63,7 @@ export const rooms = () => {
                       </div>
                 
                 `);
-        const success = article.find("#ok");
+        const success = article.find("#success-alert");
         success.hide();
 
         const carts = article.find(".addcart");
@@ -144,6 +147,10 @@ export const rooms = () => {
                 };
               }
               success.show();
+              success.fadeTo(2000, 500).slideUp(500, function () {
+                success.slideUp(500);
+              });
+
               localStorage.setItem("productsInCart", JSON.stringify(cartItems));
             }
             function totalCost(rooms) {

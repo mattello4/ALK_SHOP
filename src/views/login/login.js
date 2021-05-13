@@ -37,8 +37,6 @@ export const login = () => {
       .get("http://localhost:3000/users")
       .then((response) => response.data)
       .then(function (response) {
-        localStorage.setToken("access_token", JSON.stringify(response.data));
-        localStorage.setToken("refresh_token", JSON.stringify(response.data));
         console.log(response);
       })
       .then((users) => {

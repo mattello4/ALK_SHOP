@@ -11,11 +11,10 @@ const createNavigationEvent = (view) =>
   });
 
 export const navigation = () => {
-  const nav = $(`<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  const nav =
+    $(`<nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
 
-  <div class="navbar-header">
 
-  </div>
   
   </nav>`);
 
