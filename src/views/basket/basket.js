@@ -25,8 +25,11 @@ export const basket = () => {
 
     if (cartItems && productContainer) {
       productContainer.innerHTML = "";
-
       Object.values(cartItems).map((item) => {
+        if (item.Date === undefined) {
+          item.Date = "";
+        }
+
         productContainer.innerHTML += `  
         
         <div class="product">
@@ -35,9 +38,8 @@ export const basket = () => {
         <span>${item.name}</span>
       </div>
         <div class="price">${item.price},00</div>
-        <div class="beds">${item.beds} łóżko/a</div>
         <div class="total"><span>${item.Date}</span></div>
-        <div class="total">Aktualnie w koszyku masz: <span>${item.inCart}</span></div>
+        <div class="incart">Aktualnie w koszyku masz: <span>${item.inCart} szt.</span></div>
         </div>
         `;
       });
