@@ -1,5 +1,13 @@
 import $ from "jquery";
-import { home, rooms, roomsDetail, signUp, login, basket } from "../views";
+import {
+  home,
+  rooms,
+  roomsDetail,
+  signUp,
+  login,
+  basket,
+  treatments,
+} from "../views";
 export * from "../layout/main";
 
 export const main = () => {
@@ -32,6 +40,9 @@ export const main = () => {
         break;
       case "basket":
         section.empty().append(basket());
+        break;
+      case "treatments":
+        section.empty().append(treatments());
         break;
       default:
         section.empty().append("Coś poszło nie tak :-(");

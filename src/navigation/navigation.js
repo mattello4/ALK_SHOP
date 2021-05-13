@@ -31,7 +31,7 @@ export const navigation = () => {
     document.dispatchEvent(createNavigationEvent("home"));
   });
 
-  const roomsButton = button("Rooms").addClass("nav navbar-nav btn");
+  const roomsButton = button("Pokoje").addClass("nav navbar-nav btn");
   roomsButton.on("click", function (event) {
     event.preventDefault();
     document.dispatchEvent(createNavigationEvent("rooms"));
@@ -49,7 +49,20 @@ export const navigation = () => {
     document.dispatchEvent(createNavigationEvent("login"));
   });
 
-  nav.append(basketButton, homeButton, roomsButton, signUpButton, loginButton);
+  const treatmentsButton = button("Zabiegi").addClass("nav navbar-nav btn");
+  treatmentsButton.on("click", function (event) {
+    event.preventDefault();
+    document.dispatchEvent(createNavigationEvent("treatments"));
+  });
+
+  nav.append(
+    basketButton,
+    homeButton,
+    roomsButton,
+    treatmentsButton,
+    signUpButton,
+    loginButton
+  );
 
   return nav;
 };

@@ -12,13 +12,11 @@ const validate = (validation, errorMessage) => {
 
 export const rooms = () => {
   const fragment = $(document.createDocumentFragment());
-  const h2 = $(`<div class="col-md-12 text-center"><h2>Wybierz</h2></div>`);
-  const section = $("<section>Loading...</section>");
   const form = $(`
-  <form name="signUp" autocomplete="off" novalidate>
+  <form name="rooms" autocomplete="off" novalidate>
   <div class="container mt-2">
   <div class="col-md-12 item text-center">
-      <label class="required">Przyjazd</label><br>
+      <label>Przyjazd</label><br>
       <input type="date" id="come"><br>
       <p id="come-check" class="text-danger">Data przyjazdu wcześniejsza niż bieżąca</p>
       <p id="come-required" class="text-danger">Uzupełnij datę przyjazdu</p>
@@ -31,8 +29,9 @@ export const rooms = () => {
   </div>
 </div>
 </form>`);
+  const section = $("<section>Loading...</section>");
 
-  fragment.append(h2, form, section);
+  fragment.append(form, section);
 
   // POBIERAMY POKOJE Z JSON-SERVER
   axios
