@@ -7,6 +7,7 @@ import {
   login,
   basket,
   treatments,
+  orderDetail,
 } from "../views";
 export * from "../layout/main";
 
@@ -37,6 +38,9 @@ export const main = () => {
         break;
       case "login":
         section.empty().append(login());
+        break;
+      case "order-detail":
+        section.empty().append(orderDetail(detail.userId));
         break;
       case "basket":
         section.empty().append(basket());

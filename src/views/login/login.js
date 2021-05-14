@@ -33,22 +33,35 @@ export const login = () => {
       p: password,
     };
 
+    axios;
     axios
       .get("http://localhost:3000/users")
       .then((response) => response.data)
-      .then(function (response) {
-        console.log(response);
-      })
       .then((users) => {
         const user = users.find((usr) => usr.l === data.l && usr.p === data.p);
 
         if (user) {
-          console.log("TAK");
+          sessionStorage.setItem("user", JSON.stringify(user));
+          createViews();
         } else {
           console.log("Coś poszło nie tak");
         }
       });
   });
+
+  function createViews() {
+    let element = sessionStorage.getItem("user");
+    element = JSON.parse(sessionStorage.getItem("user"));
+
+    const navigationEvent = new CustomEvent("navigation", {
+      detail: {
+        view: "order-detail",
+        userId: element.id,
+      },
+    });
+
+    document.dispatchEvent(navigationEvent);
+  }
 
   fragment.append(h2, form);
 

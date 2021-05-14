@@ -5,3 +5,4 @@ export * from "./signUp/signUp";
 export * from "./login/login";
 export * from "./basket/basket";
 export * from "./treatments/treatments";
+export * from "./order/order-detail";
