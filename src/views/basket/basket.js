@@ -1,5 +1,6 @@
 import $ from "jquery";
 export * from "../../layout/card.css";
+import axios from "axios";
 
 export const basket = () => {
   const fragment = $(document.createDocumentFragment());
@@ -15,8 +16,11 @@ export const basket = () => {
   <div class="products-container">
     <div class="product-header">
       </div>
+      <button id="Add" class="Add btn btn-elegant">Złóż zamówienie</button>
 </div>
   `);
+
+  const add = section.find("#Add");
 
   function displayCart() {
     let cartItems = localStorage.getItem("productsInCart");
@@ -95,6 +99,29 @@ export const basket = () => {
     }
   });
 
+  function AddOrder() {
+    if (sessionStorage.getItem("user") === null) {
+      add.hide();
+    } else {
+      //If data has null, blank, undefined, zero etc.
+      add.show();
+      ordersave();
+    }
+  }
+
+  function ordersave() {
+    let cartItems = localStorage.getItem("productsInCart");
+    cartItems = JSON.parse(cartItems);
+    let cartCost = localStorage.getItem("totalCost");
+
+    const data = {
+      orders: [cartItems.name, cartItems.price, cartItems.inCart],
+    };
+
+    axios.post("http://localhost:3000/orders", data).then(console.log);
+  }
+
+  AddOrder();
   displayCart();
 
   fragment.append(h2, section, oFra);
