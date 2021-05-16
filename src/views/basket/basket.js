@@ -1,4 +1,4 @@
-import $ from "jquery";
+import $, { data } from "jquery";
 export * from "../../layout/card.css";
 import axios from "axios";
 
@@ -19,8 +19,6 @@ export const basket = () => {
       <button id="Add" class="Add btn btn-elegant">Złóż zamówienie</button>
 </div>
   `);
-
-  const add = section.find("#Add");
 
   function displayCart() {
     let cartItems = localStorage.getItem("productsInCart");
@@ -103,22 +101,34 @@ export const basket = () => {
     if (sessionStorage.getItem("user") === null) {
       add.hide();
     } else {
-      //If data has null, blank, undefined, zero etc.
       add.show();
-      ordersave();
     }
   }
+  const add = section.find("#Add");
+  add.on("click", (event) => {
+    ordersave();
+  });
 
   function ordersave() {
     let cartItems = localStorage.getItem("productsInCart");
-    cartItems = JSON.parse(cartItems);
-    let cartCost = localStorage.getItem("totalCost");
+    cartItems = JSON.parse(localStorage.getItem("productsInCart"));
 
-    const data = {
-      orders: [cartItems.name, cartItems.price, cartItems.inCart],
-    };
+    let element = sessionStorage.getItem("user");
+    element = JSON.parse(sessionStorage.getItem("user"));
 
-    axios.post("http://localhost:3000/orders", data).then(console.log);
+    Object.values(cartItems).map((item) => {
+      const data = {
+        name: item.name,
+        inCart: item.inCart,
+        price: item.price,
+        date: item.Date,
+        userID: element.id,
+      };
+
+      axios.post("http://localhost:3000/orders", data).then(console.log);
+    });
+    localStorage.clear();
+    displayCart();
   }
 
   AddOrder();

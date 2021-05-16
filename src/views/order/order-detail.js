@@ -7,7 +7,7 @@ export const orderDetail = (userId) => {
   const section = $("<section>Loading...</section>");
 
   axios
-    .get(`http://localhost:3000/orders/?userId=${userId}`)
+    .get(`http://localhost:3000/orders/?userID=${userId}`)
     .then((response) => response.data)
 
     .then((orders) => {

@@ -49,7 +49,7 @@ export const rooms = () => {
           <div class="alert alert-success" id="success-alert">
           <button type="button" class="close" data-dismiss="alert">x</button>
           <strong>Sukces! </strong> Dodałeś pokój do koszyka.
-        </div>>
+        </div>
                         <h4>${name}</h4>
                         <p class="card-text"><strong>Beds</strong> ${beds} | <strong>Guests</strong> ${guests}</p>
                         <p class="card-text"><strong>Price</strong> ${price.toFixed(
