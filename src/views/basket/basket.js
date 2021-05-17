@@ -14,11 +14,23 @@ export const basket = () => {
 
   const section = $(`
   <div class="products-container">
+  <div class="alert alert-success" id="success-alert">
+  <button type="button" class="close" data-dismiss="alert">x</button>
+  <strong>Sukces! </strong> Złożyłeś zamówienie.
+</div>
+ <div class="alert alert-danger" id="danger-alert">
+  <button type="button" class="close" data-dismiss="alert">x</button>
+  <strong>Najpier dodaj coś do koszyka</strong> 
+</div>
     <div class="product-header">
       </div>
       <button id="Add" class="Add btn btn-elegant">Złóż zamówienie</button>
 </div>
   `);
+  const success = section.find("#success-alert");
+  success.hide();
+  const danger = section.find("#danger-alert");
+  danger.hide();
 
   function displayCart() {
     let cartItems = localStorage.getItem("productsInCart");
@@ -55,6 +67,12 @@ export const basket = () => {
                 $${cartCost},00
             </h4>
       `;
+    } else {
+      productContainer.innerHTML = `
+    <div class="empty-cart">
+      <h1>Koszyk pusty </h1>
+         <p>Złóż zamówienie</p>  
+        </div>`;
     }
   }
 
@@ -116,21 +134,32 @@ export const basket = () => {
     let element = sessionStorage.getItem("user");
     element = JSON.parse(sessionStorage.getItem("user"));
 
-    Object.values(cartItems).map((item) => {
-      const data = {
-        name: item.name,
-        inCart: item.inCart,
-        price: item.price,
-        date: item.Date,
-        userID: element.id,
-      };
+    if (cartItems) {
+      Object.values(cartItems).map((item) => {
+        const data = {
+          name: item.name,
+          inCart: item.inCart,
+          price: item.price,
+          date: item.Date,
+          userID: element.id,
+        };
 
-      axios.post("http://localhost:3000/orders", data).then(console.log);
-    });
-    localStorage.clear();
-    displayCart();
+        axios.post("http://localhost:3000/orders", data).then(console.log);
+      });
+      localStorage.clear();
+      cartItems = localStorage.getItem("productsInCart");
+      displayCart();
+      success.show();
+      success.fadeTo(2000, 500).slideUp(500, function () {
+        success.slideUp(500);
+      });
+    } else {
+      danger.show();
+      danger.fadeTo(2000, 500).slideUp(500, function () {
+        danger.slideUp(500);
+      });
+    }
   }
-
   AddOrder();
   displayCart();
 
