@@ -41,6 +41,42 @@
       "p": "sernik123",
       "newUser": true,
       "id": 7
+    },
+    {
+      "l": "sernik123",
+      "p": "sernik123",
+      "newUser": true,
+      "id": 8
+    },
+    {
+      "l": "sernik123",
+      "p": "sernik123",
+      "newUser": true,
+      "id": 9
+    },
+    {
+      "l": "sernik123",
+      "p": "sernik123",
+      "newUser": true,
+      "id": 10
+    },
+    {
+      "l": "sernik123",
+      "p": "sernik123",
+      "newUser": true,
+      "id": 11
+    },
+    {
+      "l": "sernik123",
+      "p": "sernik123",
+      "newUser": true,
+      "id": 12
+    },
+    {
+      "l": "paszka123",
+      "p": "paszka123",
+      "newUser": true,
+      "id": 13
     }
   ],
   "rooms": [
@@ -141,111 +177,37 @@
   ],
   "orders": [
     {
-      "name": "Pokój unarny",
+      "name": "Masaż rozgrzanym monitorem",
       "inCart": 1,
-      "price": 170,
-      "date": "od:2021-05-16 do:2021-05-17",
+      "price": 80,
       "userID": 7,
+      "orderDate": "2021-5-18",
       "id": 1
     },
     {
-      "name": "Biczowanie kablem od myszy",
+      "name": "Pedicure woskiem z USB",
       "inCart": 1,
-      "price": 70,
+      "price": 100,
       "userID": 7,
+      "orderDate": "2021-5-18",
       "id": 2
     },
     {
-      "name": "Masaż rozgrzanym monitorem",
+      "name": "Biczowanie kablem od myszy",
       "inCart": 1,
-      "price": 80,
+      "price": 70,
       "userID": 7,
+      "orderDate": "2021-5-18",
       "id": 3
     },
     {
-      "name": "Masaż rozgrzanym monitorem",
+      "name": "Pokój binarny",
       "inCart": 1,
-      "price": 80,
+      "price": 240,
+      "date": "od:2021-05-18 do:2021-05-25",
       "userID": 7,
+      "orderDate": "2021-5-18",
       "id": 4
-    },
-    {
-      "name": "Pokój unarny",
-      "inCart": 1,
-      "price": 170,
-      "date": "od:2021-05-17 do:2021-05-24",
-      "userID": 7,
-      "id": 5
-    },
-    {
-      "name": "Peeling odłamkami płyty CD",
-      "inCart": 1,
-      "price": 50,
-      "userID": 7,
-      "id": 6
-    },
-    {
-      "name": "Masaż rozgrzanym monitorem",
-      "inCart": 1,
-      "price": 80,
-      "userID": 7,
-      "id": 7
-    },
-    {
-      "name": "Peeling odłamkami płyty CD",
-      "inCart": 1,
-      "price": 50,
-      "userID": 7,
-      "id": 8
-    },
-    {
-      "name": "Masaż rozgrzanym monitorem",
-      "inCart": 1,
-      "price": 80,
-      "userID": 7,
-      "id": 9
-    },
-    {
-      "name": "Masaż rozgrzanym monitorem",
-      "inCart": 1,
-      "price": 80,
-      "userID": 7,
-      "id": 10
-    },
-    {
-      "name": "Biczowanie kablem od myszy",
-      "inCart": 1,
-      "price": 70,
-      "userID": 7,
-      "id": 11
-    },
-    {
-      "name": "Biczowanie kablem od myszy",
-      "inCart": 1,
-      "price": 70,
-      "userID": 7,
-      "id": 12
-    },
-    {
-      "name": "Masaż rozgrzanym monitorem",
-      "inCart": 1,
-      "price": 80,
-      "userID": 7,
-      "id": 13
-    },
-    {
-      "name": "Masaż rozgrzanym monitorem",
-      "inCart": 1,
-      "price": 80,
-      "userID": 7,
-      "id": 14
-    },
-    {
-      "name": "Peeling odłamkami płyty CD",
-      "inCart": 1,
-      "price": 50,
-      "userID": 7,
-      "id": 15
     }
   ]
 }

@@ -88,13 +88,9 @@ export const basket = () => {
 
       for (let i = 0; i < deleteButtons.length; i++) {
         deleteButtons[i].addEventListener("click", () => {
-          // console.log(i);
           productName = deleteButtons[i].parentElement.textContent
             .trim()
             .replace(/ /g, " ");
-          //console.log(productName);
-          //console.log(
-          //cartItems[productName].name + " " + cartItems[productName].inCart  );
           localStorage.setItem(
             "cartNumbers",
             productNumbers - cartItems[productName].inCart
@@ -134,6 +130,14 @@ export const basket = () => {
     let element = sessionStorage.getItem("user");
     element = JSON.parse(sessionStorage.getItem("user"));
 
+    var today = new Date();
+    var date =
+      today.getFullYear() +
+      "-" +
+      (today.getMonth() + 1) +
+      "-" +
+      today.getDate();
+
     if (cartItems) {
       Object.values(cartItems).map((item) => {
         const data = {
@@ -142,6 +146,7 @@ export const basket = () => {
           price: item.price,
           date: item.Date,
           userID: element.id,
+          orderDate: date,
         };
 
         axios.post("http://localhost:3000/orders", data).then(console.log);

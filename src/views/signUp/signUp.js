@@ -13,6 +13,11 @@ export const signUp = () => {
   const h2 = $("<h2>Sign up</h2>");
   const form = $(`
         <form name="signUp" autocomplete="off" novalidate>
+       
+        <div class="alert alert-danger" id="danger-alert">
+        <button type="button" class="close" data-dismiss="alert">x</button>
+         Istnieje już taki użytkownik
+      </div>
             <div class="form-group">
                 <label for="login">Login</label>
                 <input id="login" class="form-control" type="text">
@@ -35,6 +40,9 @@ export const signUp = () => {
             <button class="btn btn-primary" type="button">Sign up</button>
         </form>
     `);
+
+  const danger = form.find("#danger-alert");
+  danger.hide();
 
   const button = form.find("button");
 
@@ -82,19 +90,21 @@ export const signUp = () => {
         newUser: true,
       };
 
-      // SPRAWDZENIE CZY UZYTKOWNIK JUZ ISTNIEJE
-      /* axios.get('http://localhost:3000/users')
-                .then(response => response.data)
-                .then(users => {
-                    const user = users.find(usr => usr.l === data.l && usr.p === data.p);
+      axios
+        .get("http://localhost:3000/users")
+        .then((response) => response.data)
+        .then((users) => {
+          const user = users.find((usr) => usr.l === data.l);
 
-                    if (!user) {
-                        // zapisujemy nowego usera
-                        axios.post('http://localhost:3000/users', data).then(console.log);
-                    }
-                }); */
-
-      axios.post("http://localhost:3000/users", data).then(console.log);
+          if (user) {
+            danger.show();
+            danger.fadeTo(2000, 500).slideUp(500, function () {
+              danger.slideUp(500);
+            });
+          } else {
+            axios.post("http://localhost:3000/users", data).then(console.log);
+          }
+        });
 
       // CZYSCIMY WSZYSTKIE INPUTY
       // $('input').each( fn robi prop('value', '') );
